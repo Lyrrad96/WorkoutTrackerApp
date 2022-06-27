@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -11,15 +11,15 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  justify-content:stretch;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -28,11 +28,160 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+.post {
+  background-color: blue;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+.textarea {
+  width: 180vh;
+  height: 100px;
+}
+
+.headbar {
+  background-color: gold;
+  padding: 20px;
+  /* text-align: justify; */
+  /* justify-content: space-evenly; */
+}
+
+.link {
+  text-decoration: none;
+  background-color: red;
+  color: blue;
+  font-size: 18px;
+  width: 50px;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  /* float: right; */
+  
+}
+.link:hover {
+  background-color: greenyellow;
+}
+.link:active {
+  background-color: green;
+}
+
+.form {
+  text-align: center;
+  height: 40vh;
+  margin: 20px;
+}
+
+.submit {
+  vertical-align: bottom;
+  width: 120px;
+  height: 40px;
+  color: white;
+  background-color: blue;
+}
+
+ul.hlist > li {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 20px;
+}
+
+.block {
+  border-style: solid;
+  border-radius: 4px;
+  /* width: 80vh; */
+  text-align: center;
+  justify-content:center;
+  align-items: center;
+}
+.oblock {
+  border-style: solid;
+  border-width: 6px;
+  border-radius: 10px;
+  background-color: red;
+  /* width: 80vh; */
+  /* text-align: center; */
+  /* justify-content:center; */
+  /* align-items: center; */
+}
+.iblock {
+  border-style: solid;
+  border-radius: 10px;
+  background-color: blue;
+  /* display: flex;
+  flex-direction: column; */
+  /* width: 80vh; */
+  /* text-align: center; */
+  /* justify-content:center; */
+  /* align-items: center; */
+}
+.iblock:hover {
+  background-color: turquoise;
+}
+
+#click:hover {
+  cursor: pointer;
+  background-color: cadetblue;
+}
+#click:active {
+  background-color: cyan;
+}
+
+table {
+  display:inline-table;
+  
+  text-align: center;
+  justify-content: center;
+}
+
+
+td {
+  height: 80px;
+  width: 160px;
+  padding: 5px 10px;
+  vertical-align:top;
+  padding: 20px;
+  /* vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+  padding-left: 120px;
+  padding-top: 20px; */
+  border-style: solid;
+  border-color: pink;
+}
+
+thead {
+  font-weight: bold;
+  font-size: larger;
+  vertical-align:middle;
+}
+
+.day {
+  border: solid;
+  /* width: 100%; */
+  /* margin-left: 0px; */
+}
+
+.reply {
+  padding: 10px;
+  color: yellow;
+  background-color: yellow;
+}
+
+#ans {
+  display: flex;
+  width: 60px;
+  float: right;
+  /* margin-right: 10%; */
 }

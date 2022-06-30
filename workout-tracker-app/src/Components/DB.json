@@ -2,33 +2,50 @@
     "currentUser": "asd",
     "users": [
         {
-            "uid": 104,
-            "username": "asdfasdf",
-            "fname": "sdf",
-            "lname": "sd",
+            "username": "arnold shivajinagar",
+            "fname": "arnold",
+            "lname": "shivajinagar",
             "password": "sad"
+        },
+        {
+            "username": "avocado",
+            "fname": "nikado",
+            "lname": "avocado",
+            "password": "sad"
+        },
+        {
+            "username": "zyzz",
+            "fname": "aziz",
+            "lname": "shavershian",
+            "password": "sad"
+        },
+        {
+            "username": "name",
+            "fname": "name",
+            "lname": "name",
+            "password": "name"
         }
     ],
     "exercises": {
         "push": {
-            "push1" : [1, 2, 3],
-            "push2" : [2, 2, 3],
-            "push3" : [3, 2, 2]
+            "Wide Grip Push Ups" : ["Chest", "Shoulder", "Triceps"],
+            "Tricep Dip" : ["Triceps"],
+            "Incline Push Ups" : ["Chest", "Triceps"]
         },
         "pull": {
-            "pull1" : [5, 2, 3],
-            "pull2" : [6, 2, 3],
-            "pull3" : [7, 2, 2]
+            "Pull Ups" : ["Biceps", "Lats"],
+            "Towel Pull Down" : ["Forearm", "Core", "Lats"],
+            "Bicep Curls" : ["Biceps", "Forearm"]
         },
         "legs": {
-            "legs1" : [8, 2, 3],
-            "legs2" : [9, 2, 3],
-            "legs3" : [10, 2, 2]
+            "Squats" : ["glutes", "quadriceps", "hamstrings", "adductor", "hip flexors", "calves"],
+            "Squat Jumps" : ["glutes", "quads", "hips", "hamstrings"],
+            "Calf Raises" : ["Calf"]
         }
     },
     "posts": [
         {
-            "name": "arnold shivajinagar",
+            "name": "karen",
             "post": "Muscle weighs more than fat. True or False?",
             "time": "7/8/2020",
             "replies": []
@@ -40,59 +57,69 @@
             "replies": []
         },
         {
-            "name": "zyzz",
-            "post": "Do I Need to Work Out Every Day?",
+            "name": "Po",
+            "post": "I have a hole in my heart. Can I work out?",
             "time": "22/4/2016",
-            "replies": []
+            "replies": [{"name": "Master Oogway", "post": "If there's a hole, There's a goal", "time": "12/12/2018"}]
         },
         {
             "name": "zyzz",
             "post": "you mirin brah?",
             "time": "22/2/2012",
-            "replies": [{"name": "asd", "post": "Fuark", "time": "12/12/2018"}]
+            "replies": [{"name": "GymBrah", "post": "Fuark", "time": "12/12/2018"}]
         },
         {
             "name": "zyzz",
             "post": "How Long Should I Work Out For?",
-            "time": "1ds212",
+            "time": "16/4/2019",
             "replies": [{"name": "asd", "post": "In general, your workouts do not need to be long to be effective. Many people who are new to fitness imagine slogging around for hours on the treadmill. This doesn’t need to be the case.The length of your workout will largely depend on your fitness level, as well as the type of training and intensity you’re working out at. The CDC recommends at least 30 minutes of moderate-intensity aerobic activity 5 days a week, as well as 2 full body strength training sessions", "time": "27/5/2022"}]
         },
         {
             "name": "zyzz",
-            "post": "How Often Should I Rest?",
-            "time": "1ds212",
-            "replies": [{"name": "asd", "post": "Your rest will depend on your workout schedule. Like I said previously, I recommend 1 or 2 full days of rest in your schedule. This isn’t only great for giving your body time to recover from your workouts, it also can be a great time for self-care to promote mental health.", "time": "26/3/2020"}]
+            "post": "Should I Rest?",
+            "time": "12/2/2021",
+            "replies": [{"name": "sean nalewanyj", "post": "Your rest will depend on your workout schedule. Like I said previously, I recommend 1 or 2 full days of rest in your schedule. This isn’t only great for giving your body time to recover from your workouts, it also can be a great time for self-care to promote mental health.", "time": "26/3/2020"}]
         },
         {
             "name": "matt stonie",
             "post": "What's the Best Diet for My Fitness Goals?",
-            "time": "1ds212",
+            "time": "22/2/2020",
             "replies": []
         }
         
     ],
-    "addExercise": [],
-    "day": [],
+    "cycle": 10,
+    "cat": "",
+    "day": {
+        "exercise": [],
+        "cat": ""
+    },
     "schedule": {
-        "hari puttar":[
-            {"cat": "push", "ex": [ "push3", "push2", "push1"]},
-            {"cat": "pull", "ex": [ "pull1", "pull2" ]},
-            {"cat": "legs", "ex": [ "legs3", "legs2", "legs1" ]},
-            {"cat": "pull", "ex": [ "pull3", "pull2", "pull1" ]}
+        "HariPuttar":[
+            {"cat": "push", "ex": [ "Incline Push Ups", "Tricep Dip", "Incline Push Ups"]},
+            {"cat": "pull", "ex": [ "Pull Ups", "Towel Pull Down" ]},
+            {"cat": "legs", "ex": [ "Calf Raises", "Squat Jumps", "Squats" ]},
+            {"cat": "pull", "ex": [ "Bicep Curls", "Towel Pull Down", "Pull Ups" ]}
         ],
-        "arnold shivajinagar":[
-            {"cat": "pull", "ex": [ "pull1", "pull2" ]},
-            {"cat": "pull", "ex": [ "pull3", "pull2", "pull1" ]},
-            {"cat": "legs", "ex": [ "legs3", "legs2", "legs1" ]},
-            {"cat": "push", "ex": [ "push3", "push2", "push1"]},
-            {"cat": "pull", "ex": [ "pull3", "pull2", "pull1" ]}
+        "ArnoldShivajinagar":[
+            {"cat": "pull", "ex": [ "Pull Ups", "Towel Pull Down" ]},
+            {"cat": "pull", "ex": [ "Bicep Curls", "Towel Pull Down", "Pull Ups" ]},
+            {"cat": "legs", "ex": [ "Calf Raises", "Squat Jumps", "Squats" ]},
+            {"cat": "push", "ex": [ "Incline Push Ups", "Tricep Dip", "Incline Push Ups"]},
+            {"cat": "pull", "ex": [ "Bicep Curls", "Towel Pull Down", "Pull Ups" ]}
         ],
-        "cauvery mcgregor": [
-            {"cat": "pull", "ex": [ "pull1", "pull2" ]},
-            {"cat": "pull", "ex": [ "pull3", "pull2", "pull1" ]},
-            {"cat": "legs", "ex": [ "legs3", "legs2", "legs1" ]},
-            {"cat": "push", "ex": [ "push3", "push2", "push1"]},
-            {"cat": "pull", "ex": [ "pull3", "pull2", "pull1" ]}
+        "CauveryMcgregor": [
+            {"cat": "pull", "ex": [ "Pull Ups", "Towel Pull Down" ]},
+            {"cat": "pull", "ex": [ "Bicep Curls", "Towel Pull Down", "Pull Ups" ]},
+            {"cat": "legs", "ex": [ "Calf Raises", "Squat Jumps", "Squats" ]},
+            {"cat": "push", "ex": [ "Incline Push Ups", "Tricep Dip", "Incline Push Ups"]},
+            {"cat": "pull", "ex": [ "Bicep Curls", "Towel Pull Down", "Pull Ups" ]}
+        ],
+        "Test": [
+            {"cat": "legs", "ex": [ "Calf Raises", "Squat Jumps", "Squats" ]},
+            {"cat": "pull", "ex": [ "Bicep Curls", "Towel Pull Down", "Pull Ups" ]},
+            {"cat": "push", "ex": [ "Incline Push Ups", "Tricep Dip", "Incline Push Ups"]},
+            {"cat": "pull", "ex": [ "Bicep Curls", "Towel Pull Down", "Pull Ups" ]}
         ]
     }
 }

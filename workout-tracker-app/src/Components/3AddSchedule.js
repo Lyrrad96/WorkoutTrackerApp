@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Options from './1Options'
 import store from '../Redux/Store'
 
-let addExercise = []
 
 const pageReducer = (state, action) => {
   // console.log(state, "pagered", action, store.getState().schedule, store)
@@ -24,10 +23,20 @@ const pageReducer = (state, action) => {
               page: state.page
           }
       case "NEXT":
+        // if(store.getState().cat == 'rest') {
+        //   // alert("Rest")
+        //   return {
+        //     ...state,
+        //     page: 1,
+        //     day: state.day + 1
+        // }
+        // }
           if(state.page == 2) {
             store.dispatch({
               type: 'SCHEDULE',
-              payload: store.getState().currentUser
+              payload: {
+                user: store.getState().currentUser
+              }
             })
             return {
               ...state,
@@ -81,6 +90,7 @@ const Category = () => {
         <option>push</option>
         <option>pull</option>
         <option>legs</option>
+        {/* <option>rest</option> */}
       </select>
       {/* <input type={'text'} placeholder='Category' onChange={(event) => onChange(event)} /> <br/> */}
     </div>
@@ -100,23 +110,29 @@ const Display = (props) => {
   }
 
 const Exercise = () => {
-    const { exercises, posts, addExercise: [ cycle, cat ] } = store.getState()
+    // const [state, dispatch] = useReducer(pageReducer, 0)
+
+    const { exercises, posts, cycle, cat } = store.getState()
   
     const categories = Object.keys(exercises[cat])
-
+    
     console.log(exercises[cat], 'cat', categories, cycle, cat)
-    let [filtered, useFiltered] = useState()
+    
+    let [filtered, useFiltered] = useState('')
    const OnChangeFilter = (event) => {
       event.preventDefault()
       useFiltered(event.target.value)
       console.log(filtered)
   }
   const add = (ex) => {
+    alert(`${ex} added`)
+    if(cat == 'rest') ex = []
     console.log("add", ex)
     store.dispatch({
       type: 'DAY',
       payload: {
-        exercise: ex
+        exercise: ex,
+        cat: cat
       }
     })
   }
@@ -124,15 +140,16 @@ const Exercise = () => {
         <div>
          
           <h2>{cat} exercises</h2>
+
           <input onChange={(event) => OnChangeFilter(event)} placeholder='filter'/> <br></br>
             <ul>
                 {categories.map((ex)=> {
-                  console.log(filtered, ex, "fil", ex.includes(filtered))
-                  if(ex.includes(filtered)) {
+                  console.log(filtered, ex.toLowerCase(), "fil", ex.includes(filtered))
+                  if(ex.toLowerCase().includes(filtered)) {
                     return (
                     <li  className='block' id='click' onClick={() => add(ex)}>{ex} <br/>
-                            Focus: <ul className='hlist'>
-                                {exercises[cat][ex].map((foc)=><li>{foc}</li>)}
+                            Target Muscles: <ul className='hlist'>
+                            {exercises[cat][ex].map((foc)=><li>{foc}</li>)}
                     </ul> 
                 </li>
               )
@@ -159,17 +176,17 @@ const Day = (props) => {
     <div>
 
                 <div className='buttons'>
-                    <button onClick={() => dispatch({type: 'PREV'})} disabled={page==Cycle}>prev</button>
-                    <button onClick={() => dispatch({type: 'NEXT', payload: store.getState().schedule})}>next</button>
+                    <button className='link' onClick={() => dispatch({type: 'PREV'})} disabled={page==Cycle}>prev</button>
+                    <button className='link' onClick={() => dispatch({type: 'NEXT', payload: store.getState().schedule})}>next</button>
                 </div>           
-     <h2>Day {state.day + 1}</h2>
+                {state.page != 0 && state.day < store.getState().cycle ? <h2>Day {state.day + 1}</h2> : <div><br/><br/><br/><br/></div>}
                 <div className='steps'>
                     {/* <Current/> */}
-            {state.day == store.getState().addExercise[0] ? <Link to={'../home'}>View</Link>: <Current/>}
+            {state.day == store.getState().cycle ? <Link className='link' to={'../home'}>View</Link>: <Current/>}
 
                 </div>
-                {console.log(state.day, store.getState().addExercise[1])}
-            {/* {state.day == store.getState().addExercise[0] ? <Link to={'home'}>View</Link>: ''} */}
+                {console.log(state.day, store.getState().cat)}
+            {/* {state.day == store.getState().cycle ? <Link to={'home'}>View</Link>: ''} */}
 
       {/* <label>Category:</label>
       <input type={'text'} placeholder='Category' /> <br/>
@@ -201,7 +218,7 @@ export default class Schedule extends Component {
     
     {/* {!isNaN(this.state.cycle) ? this.state.cycle : 'invalid'} */}
     <Day count={this.state.cycle}/>
-    <Link to={'../'}>Back</Link>
+    {/* <Link to={'../'}>Back</Link>   */}
     </div>
     )
   }

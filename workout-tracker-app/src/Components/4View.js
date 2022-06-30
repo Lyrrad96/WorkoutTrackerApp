@@ -27,8 +27,8 @@ const View = () => {
 }
 
     {/* <Calendar props={'asd'}/> */}
-    <Link to={'../a'}>Back</Link>
-    </div>
+{/*    <Link to={'../a'}>Back</Link>
+*/}    </div>
     )
 }
 export default View

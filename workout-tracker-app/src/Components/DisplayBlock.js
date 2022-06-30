@@ -25,7 +25,7 @@ export default function DisplayBlock(props) {
                 //     <ul>
                 //         {Object.keys(exercises[cat]).map((ex)=><li>
                 //             {ex} <br/>
-                //             Focus: <ul>
+                //             Target Muscles: <ul>
                 //                 {exercises[cat][ex].map((foc)=><li>{foc}</li>)}
                 //             </ul>
                 //             </li>)}
@@ -39,7 +39,7 @@ export default function DisplayBlock(props) {
                     <ul>
                         {Object.keys(exercises[cat]).map((ex)=><li>
                             {ex} <br/>
-                            Focus: <ul>
+                            Target Muscles: <ul>
                                 {exercises[cat][ex].map((foc)=><li>{foc}</li>)}
                             </ul>
                             </li>)}

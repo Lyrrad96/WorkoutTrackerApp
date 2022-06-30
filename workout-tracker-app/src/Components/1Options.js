@@ -34,8 +34,8 @@ const Display = () => {
                     return <li className='oblock'> <h3> Category: {cat} </h3>
                     <ul>
                         {Object.keys(exercises[cat]).map((ex)=><li className='iblock'>
-                            {ex} <br/>
-                            Focus: <ul className='hlist'>
+                            <b>{ex}</b> <br/><br/>
+                            Target Muscles: <ul className='hlist'>
                                 {exercises[cat][ex].map((foc)=><li>{foc}</li>)}
                             </ul>
                             </li>)}
@@ -47,7 +47,7 @@ const Display = () => {
                 {categories.map((ex)=> {
                     return (
                     <li  className='block' onClick={() => add(ex)}>{ex} <br/>
-                            Focus: <ul className='hlist'>
+                            Target Muscles: <ul className='hlist'>
                                 {exercises[cat][ex].map((foc)=><li>{foc}</li>)}
                     </ul> 
                 </li>
@@ -66,8 +66,8 @@ export default class Options extends Component {
     <div>
     <h1>Exercises</h1>
     <Display/>
-    <Link to={'../a'}>Back</Link>
-    </div>
+{/*    <Link to={'../a'}>Back</Link>
+*/}    </div>
     )
   }
 }

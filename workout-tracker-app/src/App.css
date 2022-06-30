@@ -63,7 +63,7 @@
   background-color: red;
   color: blue;
   font-size: 18px;
-  width: 50px;
+  width: 60px;
   padding: 10px;
   border-style: solid;
   border-radius: 10px;
@@ -119,6 +119,7 @@ ul.hlist > li {
   border-style: solid;
   border-radius: 10px;
   background-color: blue;
+  padding: 10px;
   /* display: flex;
   flex-direction: column; */
   /* width: 80vh; */
@@ -184,4 +185,25 @@ thead {
   width: 60px;
   float: right;
   /* margin-right: 10%; */
+}
+
+b {
+  border-style: solid;
+  border-color: yellow;
+  font-size: larger;
+  padding: 10px;
+  /* background-color: green; */
+}
+
+select {
+  height: 20px;
+}
+/* 
+.ex {
+  font-size: 1.4vw;
+} */
+
+.today {
+  background-color: blue;
+  border-color: red;
 }

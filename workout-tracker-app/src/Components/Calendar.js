@@ -3,17 +3,18 @@ import React, { Component } from 'react'
 import store from '../Redux/Store'
 
 // destructure store
-const { schedule, addExercise } = store.getState()
-const cycle = addExercise[0]
+// const cycle = store.getState().cycle
+// console.log(cycle, store.getState().currentUser, store.getState().cycle, currentUser, "caklen")
 
 console.log("calendar")
 
-const Calendar = (props) => {
+const Calendar = () => {
     // let user = currentUser
     // console.log(Object.keys(props).length, "namesdeing", !props, props, user)
     // if(Object.keys(props).length)
-    let user = props.props
-    console.log(schedule)
+    const { currentUser, schedule, cycle, cat } = store.getState()
+    let user = currentUser
+    console.log(schedule[user], "poi", user, cycle, schedule["asd"])
     if(!schedule[user])
         return (
             <h1>No Schedule Created</h1>
@@ -32,7 +33,7 @@ const Calendar = (props) => {
         // array to store all the data to be printed in the calendar
         var allData = []
         for(let i = -7; i <= 7; i++) {
-            console.log(store.getState(), schedule, cycle, user, schedule[user])
+            console.log(store.getState(), schedule, cycle, user, schedule[user], (i + 7)%cycle, "hoya")
 
             let currentDate = new Date()
             currentDate.setDate(currentDate.getDate() + i)
@@ -46,7 +47,7 @@ const Calendar = (props) => {
             })
             console.log(currentDate.getDate(), allData)
         }
-        console.log(allData.day, "day", cycle, addExercise)
+        console.log(allData.day, "day", cycle)
 
         // add empty entries from sunday till start day
         let end = allData[7].day
@@ -58,9 +59,9 @@ const Calendar = (props) => {
                 cat: "",
                 sch: ""
             }])
-            console.log(allData, "ad")
+            console.log(allData, "alldata")
         }
-        console.log(allData, "asd", allData.sch, allData[0].day)
+        console.log(allData, "asdin", allData.sch, allData[0].day)
     
 console.log(week)
 
@@ -84,6 +85,7 @@ let four = [1, 2, 3]
     console.log(oneweek)
     first = last
     last = last + 7
+    let today = 't'
     return (
 
         <tr>
@@ -91,11 +93,13 @@ let four = [1, 2, 3]
             
         oneweek.map((val)=>{
         let { month, date, cat, sch } = val
-        
+        console.log(date, date_today, today, date == date_today)
+        if(date == date_today) today = 'today'
+        else today = 't'
         console.log(val, month, date, cat, sch, oneweek)
         {
                     return (
-                        month ? <td> {month} {date} <br/> {cat} {sch ? sch.map((ex)=><li>{ex}</li>) : '0'} </td> : <td></td>
+                        month ? <td className={`${today}`}> {month} {date} <br/> {cat} {sch ? sch.map((ex)=><li className='ex'> {ex} </li>) : '0'} </td> : <td></td>
                     )
             }
         })
@@ -165,7 +169,7 @@ export default Calendar
 //                 month: monthShortNames[currentDate.getMonth()],
 //                 date: currentDate.getDate(),
 //                 day: currentDate.getDay(),
-//                 cat: addExercise[1],
+//                 cat: cat,
 //                 sch: schedule[user][(i + 7)%cycle]
 //             })
 //             console.log(currentDate.getDate(), allData)

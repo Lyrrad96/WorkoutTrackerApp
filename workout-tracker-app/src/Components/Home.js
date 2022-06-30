@@ -33,21 +33,26 @@ const Headbar = () => {
 }
 
 const Login = () => {
+  const { users } = store.getState()
   // const [state, dispatch] = useReducer(rootReducer, initialState)
   const navigate = useNavigate()
   const onSubmit = (event) => {
     event.preventDefault()
     let username = event.target[0].value
     let password = event.target[1].value
-    console.log(username, password, store.getState())
+    console.log(username, password, store.getState(), users)
       store.dispatch({
           type: 'LOGIN',
           payload: {
               user: event.target[0].value,
           }
       })
-  //     console.log(event.target[0].value)
-      navigate(`../home`)
+      //     console.log(event.target[0].value)
+      let obj = users.find(o => o.username === username);
+      console.log(obj, "obj")
+  if(!obj) alert("User not found")
+  else if(obj.password === password) navigate(`../home`)
+  else alert("incorrect password")
 
   }
   // store.subscribe((a)=>console.log(store.getState(), store.type))
@@ -72,11 +77,11 @@ const SignUp = () => {
   // const [state, dispatch] = useReducer(rootReducer, initialState)
   const onSubmit = (event) => {
     event.preventDefault()
-      let uid = Math.floor(Math.random() * 1000)
+      // let uid = Math.floor(Math.random() * 1000)
       store.dispatch({
           type: 'SIGNUP',
           payload: {
-              uid: uid,
+              // uid: uid,
               username: event.target[0].value,
               fname: event.target[1].value,
               lname: event.target[2].value,
@@ -131,7 +136,7 @@ export default class Home extends Component {
             
         <Routes>
             <Route path='' element={<HomePage/>}/>
-            <Route path='home' element={<Calendar props={store.getState().currentUser}/>} />
+            <Route path='home' element={<Calendar/>} />
             <Route path='login' element={<Login/>} />
             <Route path='signup' element={<SignUp/>} />
             {/* <Route path=':name' element={<HomePage/>}> */}

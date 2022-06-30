@@ -54,20 +54,43 @@ const Forum = () => {
     return (
     <div>
     <h1>Forums</h1>
-    <input onChange={(event) => OnChangeFilter(event)}/>
+    <input onChange={(event) => OnChangeFilter(event)} placeholder='filter'/>
     <Link className='link' to={'../create'}>Create</Link>
+    
+    <h2>Unanswered</h2>
     {posts.map((p)=> {
-      console.log(p, "pppp", posts.indexOf(p), params)
-      if(p.post.includes(filter)) {return (
+      if(p.replies.length == 0)
+      {
+        console.log(p, "pppp", posts.indexOf(p), params)
+      if(p.post.toLowerCase().includes(filter.toLowerCase())) {return (
         <div>
       <Display props={[p, posts.indexOf(p)]} />
       {params.ind == posts.indexOf(p) ? <Outlet/> : console.log(params)}
       </div>
       )
-    }}
-      )}
-    <Link to={'../a'}>Back</Link>
-    {/* <Create/> */}
+    }
+    }
+  }
+)}
+
+<h2>Answered</h2>
+{posts.map((p)=> {
+      if(p.replies.length != 0)
+      {
+        console.log(p, "pppp", posts.indexOf(p), params)
+      if(p.post.toLowerCase().includes(filter.toLowerCase())) {return (
+        <div>
+      <Display props={[p, posts.indexOf(p)]} />
+      {params.ind == posts.indexOf(p) ? <Outlet/> : console.log(params)}
+      </div>
+      )
+    }
+    }
+  }
+)}
+
+{/*    <Link to={'../a'}>Back</Link>
+*/}    {/* <Create/> */}
     {/* <Routes>
         <Route path='create' element={<Create/>}/>
     </Routes> */}

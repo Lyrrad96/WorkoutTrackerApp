@@ -31,12 +31,12 @@ const AddOwn = () => {
         <option>legs</option>
       </select> <br/>
       {/* <input id='cat' value={'push'} /> <br/> */}
-      <label htmlFor='focus'>Focus:</label>
+      <label htmlFor='focus'>Target Muscles:</label>
       <input id='focus'/> <br/>
       <input type='submit' className='submit' value={'Create'}/>
     </form>
-    <Link to={'../a'}>Back</Link>
-    </div>
+{/*    <Link to={'../a'}>Back</Link>
+*/}    </div>
     )
 }
 

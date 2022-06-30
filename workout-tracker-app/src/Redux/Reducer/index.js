@@ -34,40 +34,70 @@ const rootReducer = (state = initialState, action) => {
             }
         case 'CYCLE':
             {
-                state.addExercise[0] = pay.cycle
+                // if(pay.cat > 0)
+                state.cycle = pay.cycle
+                console.log(state.cycle, pay.cycle)
                 return {
                     ...state
                 }
             }
         case 'CAT':
             {
-                state.addExercise[1] = pay.cat
+                // if(pay.cat.length > 0)
+                state.cat = pay.cat
+                // state.schedule.currentUser = state.schedule.currentUser.concat([{cat: pay.cat}])
                 return {
                     ...state
                 }
             }
         case 'DAY':
             {
-                // console.log(action, pay)
-                state.day = [...state.day, pay.exercise]
+                console.log(action, pay, "dddd", state.day, state.schedule)
+                if(!state.day.exercise)
+                    state.day.exercise = [pay.exercise]
+                else
+                state.day.exercise = [...state.day.exercise, pay.exercise]
+                state.day.cat = pay.cat
+                console.log(state, state.day)
                 return {
                     ...state
                 }
             }
         case 'SCHEDULE':
             {
-                console.log(action, pay, state.schedule, state.day)
+                console.log(action, pay.user, state.schedule[pay.user], state.day, "ssss", state, Object.keys(pay).length, Object.keys(pay).length != 0)
                 //     state.schedule[0] = state.day
                 // else
-                if(state.day.length!=0)
-                    if(!state.schedule[pay]) 
+                if(Object.keys(state.day).length!=0)
+                {
+                    console.log(state, "inn", !state.schedule[pay.user], state.schedule[pay.user])
+                    if(!state.schedule[pay.user]) 
                     {
-                        state.schedule[pay] = [state.day]
+                        console.log(state, "hehe")
+                        state.schedule[pay.user] = [{
+                            cat: state.day.cat,
+                            ex: [state.day.exercise]
+                        }]
                         // state.schedule[pay].concat([state.day])
                     }
                     else
-                        state.schedule[pay] = state.schedule[pay].concat([state.day]) //state.schedule.push(state.day) //[[...state.schedule], [...state.day]]
-                state.day = []
+                    {
+                        console.log(state.schedule[pay.user], "ookl", pay, pay.user)
+                        state.schedule[pay.user] = [...state.schedule[pay.user],{
+                            cat: state.day.cat,
+                            ex: state.day.exercise
+                        }]
+                        // state.schedule[pay.user] = [...state.schedule[pay.user],{
+                        //     cat: state.day.cat,
+                        //     ex: [state.day.exercise]
+                        // }]
+                    }
+                        // ["cat"] = state.day.cat //state.schedule.push(state.day) //[[...state.schedule], [...state.day]]
+                        // state.schedule[pay.user]["ex"] = state.schedule[pay.user]["ex"].concat([state.day.exercise]) //state.schedule.push(state.day) //[[...state.schedule], [...state.day]]
+                }
+                    
+                state.day = {}
+                console.log(state)
                 return {
                     ...state
                 }
